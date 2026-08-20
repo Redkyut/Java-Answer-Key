@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java For Each Loop Activity Answers</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --code-bg: #090d16;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 0;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 8px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 14px;
+            border-radius: 6px;
+            overflow-x: auto;
+            color: #38bdf8;
+            font-family: 'Consolas', 'Courier New', monospace;
+            margin: 10px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .checklist-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Java For Each Loop - Activity Answers</h1>
+
+    <!-- Part A -->
+    <div class="card">
+        <h2>Part A: Predict the Output</h2>
+        <p><strong>1. Colors Loop:</strong></p>
+        <pre>Red
+Blue
+Green</pre>
+        <p><strong>2. Age Loop:</strong></p>
+        <pre>15
+16
+17</pre>
+    </div>
+
+    <!-- Part B -->
+    <div class="card">
+        <h2>Part B: Identify the Parts</h2>
+        <ul>
+            <li><strong>Data Type:</strong> <code>String</code></li>
+            <li><strong>Variable:</strong> <code>pet</code></li>
+            <li><strong>Array Name:</strong> <code>animals</code></li>
+            <li><strong>Execution Count:</strong> Executed 3 times</li>
+        </ul>
+    </div>
+
+    <!-- Part C -->
+    <div class="card">
+        <h2>Part C: Create Your Own Program (Favorite Foods)</h2>
+        <pre><code>public class FavoriteFoods {
+    public static void main(String[] args) {
+        String[] foods = {"Pizza", "Burger", "Spaghetti", "Chicken", "Ice Cream"};
+
+        for (String food : foods) {
+            System.out.println(food);
+        }
+    }
+}</code></pre>
+    </div>
+
+    <!-- Part D -->
+    <div class="card">
+        <h2>Part D: Enrichment Activity (Classmates)</h2>
+        <pre><code>public class ClassmateNames {
+    public static void main(String[] args) {
+        String[] classmates = {"Jinon", "Maiah", "Fines", "Osorio", "Bringas"};
+
+        for (String classmate : classmates) {
+            System.out.println(classmate);
+        }
+    }
+}</code></pre>
+    </div>
+
+    <!-- Part V -->
+    <div class="card">
+        <h2>Part V: Submission Checklist</h2>
+        <div id="checklist-container">
+            <!-- JavaScript dynamically creates interactive checklist items here -->
+        </div>
+    </div>
+
+    <!-- Part VI -->
+    <div class="card">
+        <h2>Part VI: Learning Check</h2>
+        <p>
+            A for each loop is useful because it provides a simpler, cleaner syntax to access every element in an array
+            without having to manage an index counter manually. This reduces coding errors and makes the
+            program much easier to read when you simply need to process every item.
+        </p>
+    </div>
+
+    <script>
+        const checklistItems = [
+    "I read the For Each Loop reading material.",
+    "I completed Activity A.",
+    "I completed Activity B.",
+    "I created the Java program in Activity C.",
+    "I completed the Enrichment Activity.",
+    "I checked my answers before submitting.",
+    "I attached a screenshot of my code and output, if applicable."
+];
+
+const container = document.getElementById("checklist-container");
+
+// Load saved checklist states from local storage, or default all to 'true' (permanently checked)
+const savedStates = JSON.parse(localStorage.getItem("checklist_states")) 
+    || checklistItems.map(() => true);
+
+// Save current checkbox state to local storage
+function saveStates() {
+    const states = childCheckboxes.map(cb => cb.checked);
+    localStorage.setItem("checklist_states", JSON.stringify(states));
+}
+
+// 1. Create the "Select All" master box
+const selectAllDiv = document.createElement("div");
+selectAllDiv.className = "checklist-item";
+
+const selectAllBox = document.createElement("input");
+selectAllBox.type = "checkbox";
+selectAllBox.id = "select-all";
+
+const selectAllLabel = document.createElement("label");
+selectAllLabel.htmlFor = "select-all";
+selectAllLabel.innerHTML = "<strong>Select All</strong>";
+
+selectAllDiv.appendChild(selectAllBox);
+selectAllDiv.appendChild(selectAllLabel);
+container.appendChild(selectAllDiv);
+
+const hr = document.createElement("hr");
+hr.style.cssText = "border: 0; border-top: 1px solid #334155; margin: 12px 0;";
+container.appendChild(hr);
+
+const childCheckboxes = [];
+
+// 2. Build checkboxes with permanently saved / checked default states
+checklistItems.forEach((text, index) => {
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "checklist-item";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = `item-${index}`;
+    
+    // Apply permanent/saved checked state
+    checkbox.checked = savedStates[index];
+
+    const label = document.createElement("label");
+    label.htmlFor = `item-${index}`;
+    label.textContent = text;
+    
+    if (checkbox.checked) {
+        label.classList.add("completed");
+    }
+
+    checkbox.addEventListener("change", () => {
+        label.classList.toggle("completed", checkbox.checked);
+        selectAllBox.checked = childCheckboxes.every(cb => cb.checked);
+        saveStates();
+    });
+
+    itemDiv.appendChild(checkbox);
+    itemDiv.appendChild(label);
+    container.appendChild(itemDiv);
+
+    childCheckboxes.push(checkbox);
+});
+
+// Set initial "Select All" status based on loaded items
+selectAllBox.checked = childCheckboxes.every(cb => cb.checked);
+
+// 3. Toggle all items and persist state
+selectAllBox.addEventListener("change", () => {
+    childCheckboxes.forEach(cb => {
+        cb.checked = selectAllBox.checked;
+        const label = document.querySelector(`label[for="${cb.id}"]`);
+        if (label) {
+            label.classList.toggle("completed", cb.checked);
+        }
+    });
+    saveStates();
+});
+    </script>
+</body>
+</html>
